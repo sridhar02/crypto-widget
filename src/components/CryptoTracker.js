@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const symbolToCoinGeckoId = {
   pepe: "pepe",
@@ -39,16 +40,15 @@ const CryptoTicker = ({ symbol }) => {
 
   return (
     <>
-      <div className="popup">
+      <div className={`popup-${symbol}`}>
         <span className={`${priceChangeClass} hover:underline cursor-pointer`}>
           {symbol.toUpperCase()} {arrow} {Math.abs(priceChange)}%
         </span>
       </div>
       <ReactTooltip
-        anchorSelect=".popup"
+        anchorSelect={`popup-${symbol}`}
         id={`chart-${symbol}`}
         place="bottom"
-        effect="solid"
       >
         <div className="flex flex-col items-center space-y-2">
           <h3 className="text-lg font-bold">{data.name}</h3>
