@@ -40,13 +40,13 @@ const CryptoTicker = ({ symbol }) => {
 
   return (
     <>
-      <div className={`popup-${symbol}`}>
+      <span className={`popup-${symbol}`}>
         <span className={`${priceChangeClass} hover:underline cursor-pointer`}>
           {symbol.toUpperCase()} {arrow} {Math.abs(priceChange)}%
         </span>
-      </div>
+      </span>
       <ReactTooltip
-        anchorSelect={`popup-${symbol}`}
+        anchorSelect={`.popup-${symbol}`}
         id={`chart-${symbol}`}
         place="bottom"
       >
