@@ -42,7 +42,7 @@ const CryptoTicker = ({ symbol }) => {
     <>
       <span className={`popup-${symbol}`}>
         <span className={`${priceChangeClass} hover:underline cursor-pointer`}>
-          {arrow} {symbol.toUpperCase() / USD} {Math.abs(priceChange)}%
+          {arrow} {symbol.toUpperCase() + "/ USD"} {Math.abs(priceChange)}%
         </span>
       </span>
       <ReactTooltip
@@ -55,7 +55,7 @@ const CryptoTicker = ({ symbol }) => {
           <div className="border-b-2 flex justify-between">
             <div>
               <h3 className="text-lg font-bold">
-                {data.name.toUpperCase() / USD}
+                {data.name.toUpperCase() + "/ USD"}
               </h3>
               <p>{data.id}</p>
             </div>
@@ -71,7 +71,7 @@ const CryptoTicker = ({ symbol }) => {
           </div>
           <a href="">
             More about
-            {data.name.toUpperCase() / USD}
+            {data.name.toUpperCase() + "/ USD"}
           </a>
         </div>
       </ReactTooltip>
