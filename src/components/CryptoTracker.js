@@ -50,8 +50,9 @@ const CryptoTicker = ({ symbol }) => {
         id={`chart-${symbol}`}
         place="bottom"
         className="bg-white text-black"
+        clickable={true}
       >
-        <div className="flex flex-col items-start space-y-2">
+        <div className="flex flex-col items-start space-y-2 bg-white text-black">
           <div className="border-b-2 flex justify-between">
             <div>
               <h3 className="text-lg font-bold">
@@ -69,10 +70,7 @@ const CryptoTicker = ({ symbol }) => {
               {data.high_24h.toFixed(8)}
             </p>
           </div>
-          <a href="">
-            More about
-            {data.name.toUpperCase() + "/ USD"}
-          </a>
+          <a href="">More about {data.name.toUpperCase() + "/ USD"}</a>
         </div>
       </ReactTooltip>
     </>
