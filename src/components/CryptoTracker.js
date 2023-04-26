@@ -42,22 +42,37 @@ const CryptoTicker = ({ symbol }) => {
     <>
       <span className={`popup-${symbol}`}>
         <span className={`${priceChangeClass} hover:underline cursor-pointer`}>
-          {symbol.toUpperCase()} {arrow} {Math.abs(priceChange)}%
+          {arrow} {symbol.toUpperCase() / USD} {Math.abs(priceChange)}%
         </span>
       </span>
       <ReactTooltip
         anchorSelect={`.popup-${symbol}`}
         id={`chart-${symbol}`}
         place="bottom"
+        className="bg-white text-black"
       >
-        <div className="flex flex-col items-center space-y-2">
-          <h3 className="text-lg font-bold">{data.name}</h3>
-          <p>Price: ${data.current_price.toFixed(2)}</p>
-          <p>Market Cap: ${data.market_cap.toLocaleString()}</p>
-          <p>Volume: ${data.total_volume.toLocaleString()}</p>
-          <p>
-            Day range: ${data.low_24h.toFixed(8)} - ${data.high_24h.toFixed(8)}
-          </p>
+        <div className="flex flex-col items-start space-y-2">
+          <div className="border-b-2 flex justify-between">
+            <div>
+              <h3 className="text-lg font-bold">
+                {data.name.toUpperCase() / USD}
+              </h3>
+              <p>{data.id}</p>
+            </div>
+            <p>${data.current_price.toFixed(2)}</p>
+          </div>
+          <div className="border-b-2">
+            <p>Market Cap: ${data.market_cap.toLocaleString()}</p>
+            <p>Volume: ${data.total_volume.toLocaleString()}</p>
+            <p>
+              Day range: ${data.low_24h.toFixed(8)} - $
+              {data.high_24h.toFixed(8)}
+            </p>
+          </div>
+          <a href="">
+            More about
+            {data.name.toUpperCase() / USD}
+          </a>
         </div>
       </ReactTooltip>
     </>
