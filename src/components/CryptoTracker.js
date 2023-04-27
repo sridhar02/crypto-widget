@@ -35,15 +35,22 @@ const CryptoTicker = ({ symbol }) => {
   }
 
   const priceChange = data.price_change_percentage_24h.toFixed(2);
-  const priceChangeClass = priceChange >= 0 ? "text-green-600" : "text-red-600";
+  const priceChangeClass =
+    priceChange >= 0
+      ? "text-green-600 bg-green-200"
+      : "text-red-500 bg-red-200";
 
   const arrow = priceChange >= 0 ? "↑" : "↓";
 
   return (
     <>
       <span className={`popup-${symbol}`}>
-        <span className={`${priceChangeClass} hover:underline cursor-pointer`}>
-          {arrow} {symbol.toUpperCase() + "/ USD"} {Math.abs(priceChange)}%
+        <span
+          className={`${priceChangeClass} hover:underline cursor-pointer font-semibold`}
+        >
+          {arrow}{" "}
+          {symbol.toUpperCase() + "/ USD" + " " + Math.abs(priceChange) + "%"}
+          <span className="text-blue-500">{"+Free Alerts"}</span>
         </span>
       </span>
       <ReactTooltip
@@ -53,7 +60,7 @@ const CryptoTicker = ({ symbol }) => {
         className="bg-white text-black"
         clickable={true}
       >
-        <div className="flex flex-col items-start bg-white text-black w-full">
+        <div className="flex flex-col items-start bg-white text-black w-full ">
           <div className="border-b-2 flex  items-center justify-between w-full">
             <div>
               <h3 className="text-lg font-bold">
@@ -63,7 +70,7 @@ const CryptoTicker = ({ symbol }) => {
             </div>
             <div>
               <p>${data.current_price.toFixed(2)}</p>
-              <div></div>
+              <div>0</div>
             </div>
           </div>
           <div className="border-b-2 flex flex-col">
