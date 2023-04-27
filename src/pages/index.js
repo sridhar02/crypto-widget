@@ -18,7 +18,7 @@ const Article = () => {
 
   return (
     <div>
-      <h1>Latest news on Crypto</h1>
+      <h1 className="text-lg font-semibold">Latest news on Crypto</h1>
       <p className="mt-2 leading-relaxed">{content}</p>
     </div>
   );

@@ -110,7 +110,10 @@ const CryptoTicker = ({ symbol }) => {
               </Sparklines>
             </div>
           </div>
-          <a href="#" className="text-blue-600 mt-1">
+          <a
+            href={`https://www.coingecko.com/en/coins/${data.name}`}
+            className="text-blue-600 mt-1"
+          >
             More about {data.name.toUpperCase() + "/USD"}
           </a>
         </div>
