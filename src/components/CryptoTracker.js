@@ -27,7 +27,7 @@ const CryptoTicker = ({ symbol }) => {
   }, [symbol]);
 
   if (!data) {
-    return <span>Loading...</span>;
+    return <span> </span>;
   }
 
   if (data.length === 0) {
@@ -111,7 +111,7 @@ const CryptoTicker = ({ symbol }) => {
             </div>
           </div>
           <a
-            href={`https://www.coingecko.com/en/coins/${data.name}`}
+            href={`https://www.coingecko.com/en/coins/${data.id}`}
             className="text-blue-600 mt-1"
           >
             More about {data.name.toUpperCase() + "/USD"}
