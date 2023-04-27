@@ -43,6 +43,8 @@ const CryptoTicker = ({ symbol }) => {
   const priceCss = priceChange >= 0 ? "text-green-600" : "text-red-500";
 
   const arrow = priceChange >= 0 ? "↑" : "↓";
+  const marketCapInBillion = data.market_cap / 1000000000;
+  const volumeInMillion = data.total_volume / 1000000;
 
   return (
     <>
@@ -52,7 +54,9 @@ const CryptoTicker = ({ symbol }) => {
         >
           {arrow}{" "}
           {symbol.toUpperCase() + "/USD" + " " + Math.abs(priceChange) + "%"}
-          <span className="text-blue-600 text-xs ml-2">{"+Free Alerts"}</span>
+          <a href="#" className="text-blue-600 text-xs ml-2">
+            {"+ Free Alerts"}
+          </a>
         </span>
       </span>
       <ReactTooltip
@@ -79,11 +83,11 @@ const CryptoTicker = ({ symbol }) => {
             <div className="my-2">
               <div className="flex justify-between mb-1">
                 <span>Market Cap: </span>
-                <span>${data.market_cap.toLocaleString()}</span>
+                <span>{marketCapInBillion.toFixed(2)} B</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span>Volume: </span>
-                <span>${data.total_volume.toLocaleString()}</span>
+                <span>{volumeInMillion.toFixed(2)} M</span>
               </div>
               <div className="flex justify-between mb-1">
                 <span>Day range: </span>
@@ -106,7 +110,7 @@ const CryptoTicker = ({ symbol }) => {
               </Sparklines>
             </div>
           </div>
-          <a href="#" className="text-blue-600">
+          <a href="#" className="text-blue-600 mt-1">
             More about {data.name.toUpperCase() + "/USD"}
           </a>
         </div>
