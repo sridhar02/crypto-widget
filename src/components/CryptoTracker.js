@@ -40,17 +40,19 @@ const CryptoTicker = ({ symbol }) => {
       ? "text-green-600 bg-green-200"
       : "text-red-500 bg-red-200";
 
+  const priceCss = priceChange >= 0 ? "text-green-600" : "text-red-500";
+
   const arrow = priceChange >= 0 ? "↑" : "↓";
 
   return (
     <>
       <span className={`popup-${symbol}`}>
         <span
-          className={`${priceChangeClass} hover:underline cursor-pointer font-semibold`}
+          className={`${priceChangeClass} hover:underline cursor-pointer font-semibold p-1`}
         >
           {arrow}{" "}
           {symbol.toUpperCase() + "/ USD" + " " + Math.abs(priceChange) + "%"}
-          <span className="text-blue-500">{"+Free Alerts"}</span>
+          <span className="text-blue-300 text-xs">{"+Free Alerts"}</span>
         </span>
       </span>
       <ReactTooltip
@@ -60,7 +62,7 @@ const CryptoTicker = ({ symbol }) => {
         className="bg-white text-black"
         clickable={true}
       >
-        <div className="flex flex-col items-start bg-white text-black w-full ">
+        <div className="flex flex-col items-start bg-white text-black w-full p-[5px]">
           <div className="border-b-2 flex  items-center justify-between w-full">
             <div>
               <h3 className="text-lg font-bold">
@@ -68,9 +70,9 @@ const CryptoTicker = ({ symbol }) => {
               </h3>
               <p>{data.id}</p>
             </div>
-            <div>
+            <div className={`${priceCss}`}>
               <p>${data.current_price.toFixed(2)}</p>
-              <div>0</div>
+              <div>0 ({Math.abs(priceChange)})</div>
             </div>
           </div>
           <div className="border-b-2 flex flex-col">
@@ -90,7 +92,7 @@ const CryptoTicker = ({ symbol }) => {
                 </span>
               </div>
             </div>
-            <div className="mt-2 ml-2">
+            <div className="my-2 ml-2">
               <Sparklines
                 data={data.sparkline_in_7d.price}
                 width={100}
