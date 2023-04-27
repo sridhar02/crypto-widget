@@ -111,8 +111,10 @@ const CryptoTicker = ({ symbol }) => {
             </div>
           </div>
           <a
-            href={`https://www.coingecko.com/en/coins/${data.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-blue-600 mt-1"
+            href={`https://www.coingecko.com/en/coins/${data.id}`}
           >
             More about {data.name.toUpperCase() + "/USD"}
           </a>
