@@ -51,8 +51,8 @@ const CryptoTicker = ({ symbol }) => {
           className={`${priceChangeClass} hover:underline cursor-pointer font-semibold p-1`}
         >
           {arrow}{" "}
-          {symbol.toUpperCase() + "/ USD" + " " + Math.abs(priceChange) + "%"}
-          <span className="text-blue-300 text-xs">{"+Free Alerts"}</span>
+          {symbol.toUpperCase() + "/USD" + " " + Math.abs(priceChange) + "%"}
+          <span className="text-blue-600 text-xs ml-2">{"+Free Alerts"}</span>
         </span>
       </span>
       <ReactTooltip
@@ -71,12 +71,12 @@ const CryptoTicker = ({ symbol }) => {
               <p>{data.id}</p>
             </div>
             <div className={`${priceCss}`}>
-              <p>${data.current_price.toFixed(2)}</p>
-              <div>0 ({Math.abs(priceChange)})</div>
+              <p className="font-bold">$ {data.current_price.toFixed(2)}</p>
+              <div>0 ({Math.abs(priceChange) + "%"})</div>
             </div>
           </div>
           <div className="border-b-2 flex flex-col">
-            <div>
+            <div className="my-2">
               <div className="flex justify-between mb-1">
                 <span>Market Cap: </span>
                 <span>${data.market_cap.toLocaleString()}</span>
