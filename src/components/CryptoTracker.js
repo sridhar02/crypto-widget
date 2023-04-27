@@ -66,7 +66,7 @@ const CryptoTicker = ({ symbol }) => {
               <div></div>
             </div>
           </div>
-          <div className="border-b-2 flex ">
+          <div className="border-b-2 flex flex-col">
             <div>
               <div className="flex justify-between mb-1">
                 <span>Market Cap: </span>
@@ -83,13 +83,13 @@ const CryptoTicker = ({ symbol }) => {
                 </span>
               </div>
             </div>
-            <div className="mt-2">
+            <div className="mt-2 ml-2">
               <Sparklines
                 data={data.sparkline_in_7d.price}
                 width={100}
                 height={20}
               >
-                <SparklinesLine color="blue" />
+                <SparklinesLine color="#43caf0" />
                 <SparklinesSpots
                   size={4}
                   spotColors={{ 0: "red", "-1": "green" }}
@@ -97,7 +97,6 @@ const CryptoTicker = ({ symbol }) => {
               </Sparklines>
             </div>
           </div>
-
           <a href="#" className="text-blue-600">
             More about {data.name.toUpperCase() + "/USD"}
           </a>
