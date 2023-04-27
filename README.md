@@ -9,12 +9,15 @@ Problem:  Build a Ticker Widget in Next.js which shows latest crypto data and is
 
 First, run the development server:
 
+- First install the dependencies
+
+```bash
+npm install
+```
+- To run the application 
+
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
