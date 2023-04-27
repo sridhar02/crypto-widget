@@ -20,7 +20,7 @@ const Article = () => {
 
 export default function Home() {
   return (
-    <div>
+    <div className="p-2">
       <Article />
     </div>
   );

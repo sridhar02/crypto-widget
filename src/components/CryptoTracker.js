@@ -52,25 +52,36 @@ const CryptoTicker = ({ symbol }) => {
         className="bg-white text-black"
         clickable={true}
       >
-        <div className="flex flex-col items-start space-y-2 bg-white text-black">
-          <div className="border-b-2 flex justify-between">
+        <div className="flex flex-col items-start bg-white text-black w-full">
+          <div className="border-b-2 flex  items-center justify-between w-full">
             <div>
               <h3 className="text-lg font-bold">
-                {data.name.toUpperCase() + "/ USD"}
+                {data.name.toUpperCase() + "/USD"}
               </h3>
               <p>{data.id}</p>
             </div>
             <p>${data.current_price.toFixed(2)}</p>
           </div>
           <div className="border-b-2">
-            <p>Market Cap: ${data.market_cap.toLocaleString()}</p>
-            <p>Volume: ${data.total_volume.toLocaleString()}</p>
-            <p>
-              Day range: ${data.low_24h.toFixed(8)} - $
-              {data.high_24h.toFixed(8)}
-            </p>
+            <div className="flex justify-between mb-1">
+              <span>Market Cap:</span>
+              <span>${data.market_cap.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between mb-1">
+              <span>Volume:</span>
+              <span>${data.total_volume.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between mb-1">
+              <span>Day range:</span>
+              <span>
+                ${data.low_24h.toFixed(8)} - ${data.high_24h.toFixed(8)}
+              </span>
+            </div>
           </div>
-          <a href="">More about {data.name.toUpperCase() + "/ USD"}</a>
+
+          <a href="#" className="bg-blue-600">
+            More about {data.name.toUpperCase() + "/USD"}
+          </a>
         </div>
       </ReactTooltip>
     </>
